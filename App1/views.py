@@ -1,15 +1,14 @@
 import json
 
-from django.http import JsonResponse
+from django.http  import JsonResponse
 from django.views import View
-
-from App1.models import User
+from App1.models  import User
 
 
 class SignUpView(View):
     def post(self, request):
 
-        data = json.load(request.body)
+        data = json.loads(request.body)
 
         User.objects.create(
             name         = data['name'],
